@@ -1,0 +1,17 @@
+.split-screen {
+    display: flex;
+}
+
+.split-screen > div {
+    width: 50%;
+}
+
+.source {
+    background-color: lightgray;
+    color: black;
+    padding: 20px;
+}
+
+.database-tables {
+    overflow: scroll;
+}

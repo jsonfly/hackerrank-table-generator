@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hackerrank table generator</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/generator.css') }}">
+    <script src="{{ url_for('static', filename='js/generator.js') }}" defer></script>
+</head>
+<body>
+<div class="split-screen">
+    <div>
+        <button class="copy-code">Copy code!</button>
+        <div class="database-tables">
+            {% for (table_name, table_data) in data.items() %}
+                <table class="database-table">
+                    <tbody>
+                    <tr>
+                        <th colspan="100">{{ table_name }}</th>
+                    </tr>
+                    <tr>
+                        {% for header in table_data[0].keys() %}
+                            <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for row in table_data %}
+                        <tr>
+                            {% for value in row.values() %}
+                                <td>{{ value or '...' }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="source">
+        <code>
+
+        </code>
+    </div>
+</div>
+</body>
+</html>
